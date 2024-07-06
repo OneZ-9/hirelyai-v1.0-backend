@@ -18,6 +18,10 @@ const jobApplicationSchema = new mongoose.Schema({
     ref: "Job",
     required: true,
   },
+  submitted: {
+    type: String,
+    required: true,
+  },
   rating: {
     type: String,
   },

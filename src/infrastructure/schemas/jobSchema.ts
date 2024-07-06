@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 // define shape of the job object
 const jobSchema = new mongoose.Schema({
+  company: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -25,6 +29,10 @@ const jobSchema = new mongoose.Schema({
       "Describe your professional development, emphasizing any certification obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application?",
       "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used the and the impact of these projects on your overall growth as a professional?",
     ],
+  },
+  posted: {
+    type: String,
+    required: true,
   },
 });
 

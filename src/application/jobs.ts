@@ -91,11 +91,13 @@ export const createJob = async (
   try {
     const job = z
       .object({
+        company: z.string(),
         title: z.string(),
         description: z.string(),
         type: z.string(),
         location: z.string(),
         questions: z.string().array().optional(),
+        posted: z.string(),
       })
       .safeParse(req.body);
 
