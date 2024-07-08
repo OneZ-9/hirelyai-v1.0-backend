@@ -18,6 +18,11 @@ const jobApplicationSchema = new mongoose.Schema({
     ref: "Job",
     required: true,
   },
+  resume: {
+    data: { type: Buffer, required: true },
+    contentType: { type: String, required: true },
+    originalName: { type: String, required: true },
+  },
   submitted: {
     type: String,
     required: true,

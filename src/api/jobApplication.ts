@@ -6,13 +6,14 @@ import {
 } from "../application/jobApplication";
 import { ClerkExpressWithAuth } from "@clerk/clerk-sdk-node";
 import AuthorizationMiddleware from "./middleware/authorization-middleware";
+import { upload } from "./middleware/resume-upload";
 
 const jobApplicationRouter = express.Router();
 
 jobApplicationRouter
   .route("/")
   .get(ClerkExpressWithAuth({}), AuthorizationMiddleware, getJobApplications)
-  .post(createJobApplication);
+  .post(upload.single("resume"), createJobApplication);
 
 jobApplicationRouter
   .route("/:applicationId")
