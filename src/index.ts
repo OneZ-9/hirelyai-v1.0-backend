@@ -8,6 +8,7 @@ import GlobalErrorHandlingMiddleware from "./api/middleware/global-error-handler
 
 const app = express();
 app.use(express.json()); // retrive the req json body
+
 app.use(cors());
 
 connectDB();

@@ -159,26 +159,34 @@ export const updateJob = async (
     if (!jobToUpdate) {
       throw new NotFoundError("Job not found!");
     }
+
     const job = z
       .object({
+        company: z.string(),
         title: z.string(),
         description: z.string(),
         type: z.string(),
         location: z.string(),
         questions: z.string().array().optional(),
+        posted: z.string(),
       })
       .safeParse(req.body);
+
     if (!job.success) {
       throw new ValidationError(job.error.message);
     }
 
-    await Job.findByIdAndUpdate(req.params.id, {
-      title: req.body.title,
-      description: req.body.description,
-      type: req.body.type,
-      location: req.body.location,
-      questions: req.body.questions,
-    });
+    await Job.findByIdAndUpdate(
+      req.params.id,
+      {
+        title: req.body.title,
+        description: req.body.description,
+        type: req.body.type,
+        location: req.body.location,
+        questions: req.body.questions,
+      },
+      { new: true }
+    );
     return res.status(204).send();
   } catch (error) {
     next(error);
