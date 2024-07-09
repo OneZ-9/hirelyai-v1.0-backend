@@ -92,7 +92,11 @@ export const getJobApplications = async (
       return res.status(200).json(jobApplications);
     }
 
-    const jobApplications = await JobApplication.find({ job: jobId });
+    const jobApplications = await JobApplication.find(
+      { job: jobId },
+      { fullName: 1 }
+    );
+
     return res.status(200).json(jobApplications);
   } catch (error) {
     next(error);
