@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 // define shape of the job object
 const jobSchema = new mongoose.Schema({
-  company: {
+  title: {
     type: String,
     required: true,
   },
-  title: {
+  company: {
     type: String,
     required: true,
   },

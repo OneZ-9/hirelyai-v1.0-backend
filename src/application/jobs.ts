@@ -91,8 +91,8 @@ export const createJob = async (
   try {
     const job = z
       .object({
-        company: z.string(),
         title: z.string(),
+        company: z.string(),
         description: z.string(),
         type: z.string(),
         location: z.string(),
@@ -162,8 +162,8 @@ export const updateJob = async (
 
     const job = z
       .object({
-        company: z.string(),
         title: z.string(),
+        company: z.string(),
         description: z.string(),
         type: z.string(),
         location: z.string(),
@@ -180,6 +180,7 @@ export const updateJob = async (
       req.params.id,
       {
         title: req.body.title,
+        company: req.body.company,
         description: req.body.description,
         type: req.body.type,
         location: req.body.location,
