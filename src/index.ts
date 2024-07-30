@@ -11,13 +11,15 @@ app.use(express.json()); // retrive the req json body
 
 // app.use(cors());
 
-app.use(
-  cors({
-    origin: "https://hirelyai-chamod.netlify.app", // Allow this origin
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allow these methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
-  })
-);
+// Set CORS options
+const corsOptions = {
+  origin: "https://hirelyai-chamod.netlify.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+// Use CORS middleware
+app.use(cors(corsOptions));
 
 connectDB();
 
