@@ -10,9 +10,10 @@ const app = express();
 app.use(express.json()); // retrive the req json body
 
 // app.use(cors());
+
 app.use(
   cors({
-    origin: "https://master--hirelyai-dev.netlify.app", // Allow this origin
+    origin: "https://hirelyai-chamod.netlify.app", // Allow this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow these methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
   })
